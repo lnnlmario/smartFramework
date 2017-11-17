@@ -20,13 +20,15 @@ public class CustomerService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
-    @Deprecated
+    /**
+     * 获取客户列表
+     */
     public List<Customer> getCustomerList(/*String keyword*/){
 
-        Connection conn = null;
+        Connection conn = DatabaseHelper.getConnection();
 
         try {
-            String sql = "SELECT * FROM custom";
+            String sql = "SELECT * FROM customer";
             return DatabaseHelper.queryEntityList(Customer.class, conn, sql);
         } finally {
             DatabaseHelper.closeConnection(conn);

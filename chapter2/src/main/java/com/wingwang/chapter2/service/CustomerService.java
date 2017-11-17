@@ -1,5 +1,6 @@
 package com.wingwang.chapter2.service;
 
+import com.wingwang.chapter2.helper.DatabaseHelper;
 import com.wingwang.chapter2.model.Customer;
 import com.wingwang.chapter2.util.PropsUtil;
 import org.slf4j.Logger;
@@ -21,31 +22,6 @@ public class CustomerService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerService.class);
 
-    private static final String DRIVER;
-    private static final String URL;
-    private static final String USERNAME;
-    private static final String PASSWORD;
-
-    static{
-        Properties conf = PropsUtil.loadProps("config.properties");
-
-        DRIVER = conf.getProperty("jdbc.driver");
-        URL = conf.getProperty("jdbc.url");
-        USERNAME = conf.getProperty("jdbc.username");
-        PASSWORD = conf.getProperty("jdbc.password");
-
-        try {
-            Class.forName(DRIVER);
-        } catch (ClassNotFoundException e) {
-            LOGGER.error("can not load jdbc driver", e);
-        }
-    }
-
-    /**
-     *  1. 在CustomerService类中读取config。properties文件，这是不合理的，毕竟将来还有很多其他的service类需要做同样的事情，
-     *  我们最好能将这些公共性的代码提取出来
-     *  2.执行一条select语句需要编写一大堆代码，而且还必须使用try...catch...finally结构，开发效率明显不高
-     */
     @Deprecated
     public List<Customer> getCustomerList(/*String keyword*/){
 
@@ -54,7 +30,7 @@ public class CustomerService {
         try {
             List<Customer> customerList = new ArrayList<Customer>();
             String sql = "SELECT * FROM customer";
-            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            conn = DatabaseHelper.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){

@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 接收GET类型的/hello请求，转发到/WEB-INF/jsp/hello.jsp页面，在hello.jsp页面上显示系统当前世界
+ * 接收GET类型的/hello请求，转发到/WEB-INF/jsp/hello.jsp页面，在hello.jsp页面上显示系统当前时间
  */
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet{

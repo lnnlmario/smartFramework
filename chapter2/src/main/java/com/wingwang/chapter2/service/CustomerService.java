@@ -47,7 +47,7 @@ public class CustomerService {
      *  2.执行一条select语句需要编写一大堆代码，而且还必须使用try...catch...finally结构，开发效率明显不高
      */
     @Deprecated
-    public List<Customer> getCustomerListOldFun(/*String keyword*/){
+    public List<Customer> getCustomerList(/*String keyword*/){
 
         Connection conn = null;
 

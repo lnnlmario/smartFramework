@@ -74,6 +74,8 @@ public final class DatabaseHelper {
 
     /**
      * 查询实体列表
+     *
+     * 使用Apache Common中的DbUtil类库，来简化jdbc的操作
      */
     public static<T> List<T> queryEntityList(Class<T> entityClass, Connection conn, String sql, Object... params){
         List<T> entityList;

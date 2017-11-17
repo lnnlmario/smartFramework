@@ -2,15 +2,13 @@ package com.wingwang.chapter2.service;
 
 import com.wingwang.chapter2.helper.DatabaseHelper;
 import com.wingwang.chapter2.model.Customer;
-import com.wingwang.chapter2.util.PropsUtil;
+import org.apache.commons.dbutils.QueryRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * 提供客户数据服务
@@ -28,28 +26,11 @@ public class CustomerService {
         Connection conn = null;
 
         try {
-            List<Customer> customerList = new ArrayList<Customer>();
-            String sql = "SELECT * FROM customer";
-            conn = DatabaseHelper.getConnection(); // <1>
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()){
-                Customer customer = new Customer();
-                customer.setId(rs.getLong("id"));
-                customer.setName(rs.getString("name"));
-                customer.setContact(rs.getString("contact"));
-                customer.setTelephone(rs.getString("telephone"));
-                customer.setEmail(rs.getString("email"));
-                customer.setRemark(rs.getString("remark"));
-                customerList.add(customer);
-            }
-            return customerList;
-        } catch (SQLException e) {
-             LOGGER.error("execute sql failure", e);
+            String sql = "SELECT * FROM custom";
+            return DatabaseHelper.queryEntityList(Customer.class, conn, sql);
         } finally {
-          DatabaseHelper.closeConnection(conn); // <2>
+            DatabaseHelper.closeConnection(conn);
         }
-        return null;
     }
 
     /**

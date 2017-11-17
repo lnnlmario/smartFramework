@@ -30,7 +30,7 @@ public class CustomerService {
         try {
             List<Customer> customerList = new ArrayList<Customer>();
             String sql = "SELECT * FROM customer";
-            conn = DatabaseHelper.getConnection();
+            conn = DatabaseHelper.getConnection(); // <1>
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
@@ -47,13 +47,7 @@ public class CustomerService {
         } catch (SQLException e) {
              LOGGER.error("execute sql failure", e);
         } finally {
-            if (null != conn){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    LOGGER.error("close connection failure", e);
-                }
-            }
+          DatabaseHelper.closeConnection(conn); // <2>
         }
         return null;
     }

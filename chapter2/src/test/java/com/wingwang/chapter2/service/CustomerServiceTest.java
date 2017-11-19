@@ -36,7 +36,7 @@ public class CustomerServiceTest {
     @Test
     public void testGetCustomer(){
         Customer customer = customerService.getCustomer(1L);
-        assertThat(customer, not(null));
+        assertThat(customer, notNullValue());
     }
 
     @Test
@@ -59,4 +59,5 @@ public class CustomerServiceTest {
     public void testDeleteCustomer(){
         assertThat(customerService.deleteCustomer(1L), is(true));
     }
+
 }

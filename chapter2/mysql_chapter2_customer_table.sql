@@ -3,7 +3,7 @@ CREATE TABLE `customer`(
 	`name` varchar(255) DEFAULT NULL,
 	`contact` varchar(255) DEFAULT NULL,
 	`telephone` varchar(255) DEFAULT NULL,
-	`emai` varchar(255) DEFAULT NULL,
+	`email` varchar(255) DEFAULT NULL,
 	`remark` text,
 	PRIMARY KEY (`id`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

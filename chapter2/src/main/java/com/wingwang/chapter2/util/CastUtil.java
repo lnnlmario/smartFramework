@@ -35,7 +35,7 @@ public final class CastUtil {
 
         if (null != obj){
             String doubleStr = castString(obj);
-            if (StringUtils.isNotEmpty(doubleStr)){
+            if (StringUtil.isNotEmpty(doubleStr)){
                 try {
                     retVal = Double.parseDouble(doubleStr);
                 } catch (NumberFormatException e){
@@ -62,7 +62,7 @@ public final class CastUtil {
 
         if (null != obj){
             String longStr = castString(obj);
-            if (StringUtils.isNotEmpty(longStr)) {
+            if (StringUtil.isNotEmpty(longStr)) {
                 try {
                     retVal = Long.parseLong(longStr);
                 } catch (NumberFormatException e){
@@ -89,7 +89,7 @@ public final class CastUtil {
 
         if (null != obj){
             String intStr = castString(obj);
-            if (StringUtils.isNotEmpty(intStr)){
+            if (StringUtil.isNotEmpty(intStr)){
                 try {
                     retVal = Integer.parseInt(intStr);
                 } catch (NumberFormatException e){
@@ -116,7 +116,7 @@ public final class CastUtil {
 
         if (null != obj){
             String booleanStr = castString(obj);
-            if (StringUtils.isNotEmpty(booleanStr)){
+            if (StringUtil.isNotEmpty(booleanStr)){
                 try {
                     retVal = Boolean.parseBoolean(booleanStr);
                 } catch (NumberFormatException e){

@@ -48,6 +48,8 @@ public final class ClassUtil {
 
     /**
      * 获取指定包名下的所有类
+     *
+     * 根据包名并将其转换为文件路径，读取class文件或jar包，获取指定的类名去加载类
      * @param packageName
      * @return
      */

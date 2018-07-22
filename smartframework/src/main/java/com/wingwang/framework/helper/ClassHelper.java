@@ -12,6 +12,9 @@ import java.util.Set;
  */
 public final class ClassHelper {
 
+    /**
+     * 定义类集合（用于存放所加载的类）
+     */
     private static final Set<Class<?>> CLASS_SET;
 
     static {

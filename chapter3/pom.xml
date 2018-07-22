@@ -11,7 +11,7 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <!-- Servlet -->
+        <!-- Smart Framework -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>

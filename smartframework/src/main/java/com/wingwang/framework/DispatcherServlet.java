@@ -26,7 +26,9 @@ import java.util.Map;
  * 请求转发类
  *
  * 一个 servlet 用它来处理所有的请求
- *
+ * 从 Handler 对象中获取 Action 方法返回值，该返回值可能有两种情况：
+ *  （1）返回值是一个View类型的视图对象，则返回一个JSP界面
+ *  （2）返回值是一个Data类型的数据对象，则返回一个JSON数据
  */
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet {

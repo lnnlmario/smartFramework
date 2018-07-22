@@ -9,7 +9,8 @@ import java.util.Set;
 /**
  * Bean助手类
  *
- * 相当于一个Bean容器，因为在Bean Map中存放了Bean类与Bean实例的映射关系，只需要调用getBean方法传入一个Bean类，就能获取Bean实例
+ * 相当于一个Bean容器，因为在Bean Map中存放了Bean类与Bean实例的映射关系，
+ * 只需要调用getBean方法传入一个Bean类，就能获取Bean实例
  */
 public final class BeanHelper {
 
@@ -40,6 +41,7 @@ public final class BeanHelper {
      * @param <T>
      * @return
      */
+    @SuppressWarnings("unchecked")
     public static <T> T getBean(Class<T> clazz) {
         if (!BEAN_MAP.containsKey(clazz)) {
             throw new RuntimeException("can not get bean by class: " + clazz);

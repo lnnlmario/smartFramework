@@ -1,4 +1,4 @@
-package com.wingwang.chapter2.helper;
+package com.wingwang.framework.helper;
 
 import com.wingwang.framework.util.CollectionUtil;
 import com.wingwang.framework.util.PropsUtil;

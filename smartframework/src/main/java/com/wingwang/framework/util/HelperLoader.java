@@ -1,9 +1,6 @@
 package com.wingwang.framework.util;
 
-import com.wingwang.framework.helper.BeanHelper;
-import com.wingwang.framework.helper.ClassHelper;
-import com.wingwang.framework.helper.ControllerHelper;
-import com.wingwang.framework.helper.IocHelper;
+import com.wingwang.framework.helper.*;
 
 /**
  * 加载相应的 Helper 类
@@ -19,6 +16,8 @@ public final class HelperLoader {
         Class<?>[] classList = {
                 ClassHelper.class,
                 BeanHelper.class,
+                // 必须在 IocHelper 前加载，首先要通过 AopHelper 获取代理对象，然后才能通过 IocHelper进行依赖注入
+                AopHelper.class,
                 IocHelper.class,
                 ControllerHelper.class
         };
